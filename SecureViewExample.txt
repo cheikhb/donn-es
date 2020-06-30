@@ -1,0 +1,20 @@
+1:create secure view emp_history_tbl
+(
+department_name,
+Total_Salary
+)
+as 
+select b.department_name,sum(salary) as Total_Salary from employee a inner join department b
+on a.dept_id=b.dept_id
+group by b.department_name
+
+2:CREATE SHARE share_emp_info;
+
+3:GRANT USAGE ON DATABASE project TO SHARE share_emp_info;
+4:GRANT USAGE ON SCHEMA project.public TO SHARE share_emp_info;
+5:GRANT SELECT ON VIEW project.public.emp_history_tbl TO SHARE share_emp_info;
+6:ALTER SHARE share_emp_info ADD ACCOUNT=;
+
+----------------------------------------Consumer----------------------------------
+1:CREATE DATABASE employee_history_tbl from SHARE ft40049.share_emp_info;
+2:Select * from emp_history_tbl

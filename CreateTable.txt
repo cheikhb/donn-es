@@ -1,0 +1,22 @@
+use Dice;
+create table employee
+(
+ employee_id int,
+ first_name varchar,
+ last_name varchar,
+ salary int,
+ designation varchar,
+ dept_id int 
+);
+
+select * from employee
+
+
+insert into employee values(123,'JOHN','CENA',5000,'Officer',200);
+insert into employee values(124,'Brett','Lee',6000,'Officer',201);
+insert into employee values(125,'Donald','Trump',8000,'Specialist',202);
+insert into employee values(126,'Alex','Hail',9000,'Specialist',202);
+insert into employee values(127,'Shane','warne',10000,'AM',203);
+insert into employee values(128,'Shawn','Tait',9000,'AM',204);
+insert into employee values(129,'Mike','clarke',13000,'Manager',203);
+insert into employee values(137,'John','Snow',14000,'Manager',209);

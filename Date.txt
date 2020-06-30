@@ -1,0 +1,16 @@
+create table date
+(
+date date,
+time time,
+time_stamp timestamp  
+)
+
+insert into date values ('2017-02-10','16:32:02','2017-02-10 16:32:02');
+insert into date values ('2017-06-20','15:32:02','2017-06-20 15:32:02');
+insert into date values ('2017-03-11','14:12:02','2017-03-11 14:12:02');
+insert into date values ('2017-04-12','18:30:02','2017-04-12 18:30:02');
+
+select time_stamp,date_part(Hour,time_stamp)  from date
+select current_date,Next_day(current_date)
+select current_date() as "Today's Date",
+       next_day(current_date(), 'Monday ') as "Next Friday

@@ -1,0 +1,20 @@
+select first_name,last_Name,department_name,salary from worker a inner join department b
+on a.dept_id=b.dept_id
+where salary between 10000 and 20000;
+
+
+select first_name,last_Name,department_name from worker a inner join department b
+on a.dept_id=b.dept_id
+inner join Location c
+on b.location_id=c.location_id
+where c.regional_group in ('Texas','California','chicago')
+
+select department_name,count(*) from worker a inner join department b
+on a.dept_id=b.dept_id
+group by department_name
+having department_name='Sales'
+
+select department_name,count(*) from worker a inner join department b
+on a.dept_id=b.dept_id
+group by department_name
+having count(*)>1

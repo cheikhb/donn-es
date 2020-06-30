@@ -1,0 +1,24 @@
+------------------------Producer-----------------------------------------
+select * from employee
+CREATE SHARE share_employee_data;
+
+GRANT USAGE ON DATABASE Dice TO SHARE share_employee_data;
+
+GRANT USAGE ON SCHEMA Dice.Public TO SHARE share_employee_data;
+
+GRANT SELECT ON TABLE Dice.Public.employee TO SHARE share_employee_data;
+
+SHOW GRANTS TO SHARE share_employee_data;
+ALTER SHARE share_employee_data ADD ACCOUNT=sy85286;
+
+----------------------------------Consumer------------------------------------
+
+SHOW SHARES;
+
+
+DESC SHARE producer_acc_no.share_employee_data;
+
+-- create a database in consumer snowflake instance based on the share.
+CREATE DATABASE share_employee_data FROM SHARE ft40049.share_employee_data;
+
+select * from employee

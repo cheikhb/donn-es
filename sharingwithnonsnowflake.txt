@@ -1,0 +1,38 @@
+----------------------Provider---------------------
+
+CREATE MANAGED ACCOUNT Admin_Account
+ADMIN_NAME = Admin , ADMIN_PASSWORD = 'Admin@123',
+TYPE = READER;
+
+SHOW MANAGED ACCOUNTS;
+
+CREATE SHARE share_employee;
+
+GRANT USAGE ON DATABASE Dice TO SHARE share_employee;
+
+GRANT USAGE ON SCHEMA Dice.Public TO SHARE share_employee;
+
+GRANT SELECT ON TABLE Dice.Public.employee TO SHARE share_employee_data;
+
+
+
+
+
+ALTER SHARE share_data ADD ACCOUNT=<consumer_account_n;
+
+
+-------------------------------Consumer-----------------------------
+CREATE USER Bob PASSWORD = 'TP@123!' MUST_CHANGE_PASSWORD = FALSE;
+
+
+CREATE DATABASE Employee_database FROM SHARE ft40049.SHARE_DATA;
+
+
+GRANT IMPORTED PRIVILEGES ON DATABASE Employee_database TO ROLE public;
+
+-- create virtual warehouse
+CREATE WAREHOUSE miniVWH WITH WAREHOUSE_SIZE = 'XSMALL' WAREHOUSE_TYPE = 'STANDARD' AUTO_SUSPEND = 600 AUTO_RESUME = TRUE;
+
+GRANT USAGE ON WAREHOUSE miniVWH TO ROLE public;
+
+

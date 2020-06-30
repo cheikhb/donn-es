@@ -1,0 +1,28 @@
+-----------------------------Subquery in where clause
+
+select max(salary) from worker
+where salary<
+(
+select max(Salary) from worker
+)
+
+
+select department_name,sum(salary) from department a left outer join worker b
+on a.dept_id=b.dept_id
+group by department_name
+
+------------------------------Subquery in  select--------------------------------------
+
+select department_name,(select sum(salary) from worker a where a.dept_id=b.dept_id) as Salary
+from department b
+
+------------------------------Subquery in from clause------------------------
+
+select a.dept_id,b.department_name,a.total_Salary
+from 
+(
+select dept_id,sum(salary) as total_Salary from worker 
+group by dept_id
+) as a
+inner join department b
+on (a.dept_id=b.dept_id)

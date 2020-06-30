@@ -1,0 +1,12 @@
+create table Contact_Detail
+(
+
+Person_name varchar(10),
+Business_Phone varchar(10),
+Cell_Phone varchar(10),
+Home_Phone varchar(10)
+)
+
+insert into Contact_Detail values('John',NULL,NULL,5749902);
+insert into Contact_Detail values('Bob',NULL,4449542,5749902);
+insert into Contact_Detail values('Peter',6218888,4438582,5749902);

@@ -1,0 +1,4 @@
+1:ROWS UNBOUNDED PRECEDING=Currentvalue+Add previous all values
+2:ROWS 2 PRECEDING=Currentvalue+Add previous 2 values
+3:ROWS BETWEEN 2 PRECEDING AND 2 FOLLOWING=Currentvalue+add previous two values+add next two values
+4:ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING=Currentvalue+Add previous all values+Add next all values

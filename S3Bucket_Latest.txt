@@ -1,0 +1,31 @@
+create or replace storage integration Snowflake_Integ_Obj
+  type = external_stage
+  storage_provider = s3
+  enabled = true
+  storage_aws_role_arn = 'arn:aws:iam::053407998061:role/Snowflake_Role'
+  storage_allowed_locations = ('s3://bucky2016/');
+  
+ desc integration Snowflake_Integ_Obj;
+  
+  create or replace file format csv_format_latest
+type = csv field_delimiter = ',' skip_header = 1 null_if = ('NULL', 'null') empty_field_as_null = true;
+
+
+create or replace stage snowflake_stage_2019
+  storage_integration = Snowflake_Integ_Obj
+  url = 's3://bucky2016/'
+  file_format = csv_format_latest;
+  
+Create or replace table employee_temp
+(
+Emp_ID	int,
+Emp_Name varchar,
+Salary int,
+Dept_ID int
+)
+
+
+copy into employee_temp from @snowflake_stage_2019;
+
+
+select * from employee_temp

@@ -1,0 +1,16 @@
+
+----------------------Valued Case Statement---------------------
+
+select Designation,case designation when 'Director' then 'High Salary'
+when 'Manager' then 'High Salary'
+when 'AM' then 'Medium Salary'
+else 'Low Salary'
+end as Salary_status
+from employee
+------------------------Searched Case Statement------------------------
+
+select salary,case when salary>=10000 then 'High Salary'
+when salary <10000 and  salary>6000 then 'Medium Salary'
+else 'Low Salary'
+end as salary_status
+from employee

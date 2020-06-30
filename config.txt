@@ -1,0 +1,25 @@
+--------------------Configuring SnowSQL-------------
+
+
+1:Check the version of Snowsql
+snowsql -v
+2:connect to snowsql
+
+
+ft40049.ap-southeast-2
+
+snowsql -a account_name -u username
+3:Select the database
+for example:
+use Demo_DB
+use Dice
+
+-----------Setup the config file for password-less auto login---------
+
+1:Open the config configuration file in a text editor. The default location of the file is: 
+Linux/Mac OS:	~/.snowsql/
+Windows:	Your-user-folder.snowsql
+
+2:Create a connection in the file so that you don't have to provide the account_name,user_name,password etc..
+
+3:Save and exit

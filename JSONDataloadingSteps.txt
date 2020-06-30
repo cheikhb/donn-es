@@ -1,0 +1,23 @@
+1:snowsql -c training
+2:use SCHEMA PUBLIC;
+3:use WAREHOUSE COMPUTE_WH;
+4:create stage JSON_data;
+5:put file://employee.json @JSON_data;
+
+6:CREATE TABLE employee_JSON(
+  json_data_raw VARIANT
+);
+
+7:copy into employee_JSON from @JSON_data/employee.json file_format=(type=json);
+
+8:
+use dice;
+SELECT
+         json_data_raw:Company,  
+        json_data_raw:Location,
+        value:firstName::string,
+        value:lastName::string
+        
+FROM
+    employee_JSON
+    , lateral flatten( input => json_data_raw:employee);

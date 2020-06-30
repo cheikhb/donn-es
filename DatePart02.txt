@@ -1,0 +1,8 @@
+Addition/Subtraction Date Time functions:
+
+1:ADD_MONTHS
+syntax:select add_months('2016-02-29'::date, 1) as result;
+2:DATEADD---(Add years to a date,Add 2 years and 2 hours to a date,Add hours to a timestamp)
+syntax:select dateadd(month, 1, '2000-02-29'::date) as result;
+3:DATEDIFF--(year,month,day,hour,minute,second)
+syntax:datediff(hour, column1, column2) diff_hours,

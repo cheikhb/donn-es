@@ -1,0 +1,18 @@
+1:Connect to snowSQL
+2:Use schema public;
+3:create stage credits;
+4:use warehouse compute_wh;
+4:put file://EMPLOYEE.CSV @CREDITS;
+5:use warehouse COMPUTE_WH;
+6:copy into WORKER from @credits
+file_format = (type = csv field_delimiter = ',' skip_header = 1);
+
+
+7:Show stages command to list all stages
+8:Drop stages command to drop the stage.
+
+copy into Employee_Dump from @ripple
+file_format = (type = csv field_delimiter = ',' skip_header = 1);
+
+
+Employee_Dump
